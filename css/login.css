@@ -1,0 +1,102 @@
+* {
+  font-family: "Cambay", sans-serif;
+}
+h1 {
+  font-size: 2rem;
+}
+h2 {
+  font-size: 1.5rem;
+}
+h3 {
+  font-size: 1.25rem;
+}
+p {
+  font-size: 1rem;
+  font-family: "Cambay", sans-serif;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 5rem 2rem 5rem;
+}
+ul {
+  display: flex;
+}
+li {
+  margin-right: 2rem;
+  list-style-type: none;
+}
+.wrapper {
+  width: 100%;
+  display: flex;
+}
+.left-wrapper {
+  width: 50%;
+}
+.left-wrapper img {
+  width: 55rem;
+  height: 100%;
+}
+.right-wrapper {
+  width: 50%;
+}
+.card-wrapper {
+  display: grid;
+  justify-content: center;
+  height: 100%;
+  align-content: center;
+}
+.user-box {
+  position: relative;
+}
+.user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: black;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+}
+.user-box label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: black;
+  transition: 0.5s;
+}
+.btn-primary {
+  position: relative;
+  width: 100%;
+  top: 50%;
+  height: 3rem;
+  left: 0;
+  right: 0;
+  border-radius: 0.3rem;
+  border-style: none;
+  font-size: 12pt;
+  background-color: rgb(150, 193, 150);
+  cursor: pointer;
+}
+h4 {
+  display: flex;
+  justify-content: center;
+}
+.signup {
+  width: 100%;
+  left: 0;
+  right: 0;
+  border-radius: 0.3rem;
+  border-style: none;
+  font-size: 12pt;
+  background-color: white;
+  color: rgb(150, 193, 150);
+  cursor: pointer;
+}
+.signup a {
+  text-decoration: none;
+}

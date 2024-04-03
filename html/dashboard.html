@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../css/login.css" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cambay:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="left-nav">
+        <h1>HB</h1>
+      </div>
+      <div class="right-nav">
+        <ul>
+          <li>Home</li>
+          <li>About Us</li>
+          <li>Contact Us</li>
+        </ul>
+      </div>
+    </nav>
+    <div class="dashboard-container">
+      <div class="left-wrapper">
+        <div class="left-header">
+          <h1 class="totalamount">$1000,000</h1>
+          <h3 class="increase_amount">+12% of all time</h3>
+          <div>
+            <h1 id="time"></h1>
+            <canvas id="myChart"></canvas>
+          </div>
+
+          <div class="my_account">
+            <div class="my_account_header">
+              <h2>Accounts</h2>
+              <button
+                type="button"
+                class="btn action_btn"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+              >
+                <i class="fa-solid fa-plus"></i>
+                Add account
+              </button>
+            </div>
+
+            <div
+              class="modal fade"
+              id="exampleModal"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                      Add Account
+                    </h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <form action="AccountDetailsServlet" method="post">
+                      <div class="mb-3">
+                        <label for="fullname" class="form-label"
+                          >Full Name</label
+                        >
+                        <input
+                          type="text"
+                          value="Enter your full name"
+                          name="formType"
+                          class="form-control"
+                          aria-describedby="emailHelp"
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label for="dob" class="form-label"
+                          >Date of Birth</label
+                        >
+                        <input
+                          type="date"
+                          class="form-control"
+                          name="Date of birth"
+                          id="dob"
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label for="gender" class="form-label">Gender:</label>
+                        <select
+                          id="gender"
+                          class="form-select"
+                          name="gender"
+                          required
+                        >
+                          <option value="male">Male</option>
+                          <option value="female">Female</option>
+                          <option value="other">Other</option>
+                        </select>
+                      </div>
+                      <div class="mb-3">
+                        <label for="username" class="form-label"
+                          >Username</label
+                        >
+                        <input
+                          type="text"
+                          value="Username"
+                          name="username"
+                          class="form-control"
+                          id="username"
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label for="email" class="form-label">Email:</label>
+                        <input
+                          type="email"
+                          value="myemail@email.com"
+                          name="email"
+                          class="form-control"
+                          id="email"
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label for="sin" class="form-label"
+                          >Social Insurance Number(SIN)</label
+                        >
+                        <input
+                          type="text"
+                          id="sin"
+                          name="sin"
+                          class="form-control"
+                          required
+                          pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"
+                          title="Enter a valid SIN number (XXX-XXX-XXX)"
+                          maxlength="11"
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label for="street" class="form-label"
+                          >Street Name</label
+                        >
+                        <input
+                          type="text"
+                          id="street"
+                          class="form-control"
+                          name="street"
+                          required
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label for="building" class="form-label"
+                          >Building/Apartment Unit</label
+                        >
+                        <input
+                          type="text"
+                          id="building"
+                          class="form-control"
+                          name="building"
+                          required
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label for="postalCode" class="form-label"
+                          >Postal Code</label
+                        >
+                        <input
+                          type="text"
+                          id="postalCode"
+                          name="postalCode"
+                          required
+                          class="form-control"
+                          pattern="[A-Za-z][0-9][A-Za-z] [0-9][A-Za-z][0-9]"
+                          title="Enter a valid postal code (e.g., A1A 1A1)"
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label for="accountType" class="form-label"
+                          >Account Type</label
+                        >
+                        <select
+                          id="accountType"
+                          class="form-select"
+                          name="accountType"
+                          required
+                        >
+                          <option value="checking">Checking Account</option>
+                          <option value="savings">Savings Account</option>
+                          <option value="ts">Traditional Savings</option>
+                          <option value="cd">
+                            Certificate of Deposit (CD)
+                          </option>
+                        </select>
+                      </div>
+                      <div class="mb-3">
+                        <label for="initialDeposit" class="form-label"
+                          >Initial Deposit</label
+                        >
+                        <input
+                          type="number"
+                          id="initialDeposit"
+                          class="form-control"
+                          name="initialDeposit"
+                          required
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label for="sourceOfFunds" class="form-label"
+                          >Source of Funds</label
+                        >
+                        <input
+                          type="text"
+                          id="sourceOfFunds"
+                          class="form-control"
+                          name="sourceOfFunds"
+                          required
+                        />
+                      </div>
+                      <input type="submit" value="Submit" />
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="account_list">
+              <button type="button" class="account_btn">
+                <div class="account_name">
+                  <p>Cheque Account</p>
+                </div>
+                <div class="account_amount">
+                  <p>$50,000</p>
+                </div>
+              </button>
+              <button type="button" class="account_btn">
+                <div class="account_name">
+                  <p>Saving Account</p>
+                </div>
+                <div class="account_amount">
+                  <p>$10,000</p>
+                </div>
+              </button>
+              <button type="button" class="account_btn">
+                <div class="account_name">
+                  <p>TFSA Account</p>
+                </div>
+                <div class="account_amount">
+                  <p>$10,000</p>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="right-wrapper">
+        <h1>Financial Operations</h1>
+        <div class="btn-container">
+          <button type="button" class="action_btn extra_space">
+            <div class="button_content">
+              <i class="fa-solid fa-plus"></i>
+              <span>Add Amount</span>
+            </div>
+          </button>
+
+          <button type="button" class="action_btn extra_space">
+            <div class="button_content">
+              <i class="fa-solid fa-plus"></i>
+              <span>Transfer Amount</span>
+            </div>
+          </button>
+          <button type="button" class="action_btn extra_space">
+            <div class="button_content">
+              <i class="fa-solid fa-plus"></i>
+              <span>Interact e-transfer</span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+      integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script
+      src="https://kit.fontawesome.com/ea02458a39.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const ctx = document.getElementById("myChart");
+
+      new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+          datasets: [
+            {
+              label: "Amount",
+              data: [12, 19, 3, 5, 2, 3],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            x: {
+              grid: {
+                display: false, // hide x-axis grid lines
+              },
+            },
+            y: {
+              grid: {
+                display: false, // hide y-axis grid lines
+              },
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
