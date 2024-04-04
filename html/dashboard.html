@@ -265,16 +265,106 @@
           </div>
         </div>
       </div>
+
       <div class="right-wrapper">
         <h1>Financial Operations</h1>
         <div class="btn-container">
-          <button type="button" class="action_btn extra_space">
+          <button
+            type="button"
+            class="action_btn extra_space"
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop"
+          >
             <div class="button_content">
               <i class="fa-solid fa-plus"></i>
               <span>Add Amount</span>
             </div>
           </button>
+          <div
+            class="modal fade"
+            id="staticBackdrop"
+            data-bs-backdrop="static"
+            data-bs-keyboard="false"
+            tabindex="-1"
+            aria-labelledby="staticBackdropLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h3 class="jus">Deposite Amount to</h3>
 
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <form action="TransferBetweenAccountsServlet" method="post">
+                    <div class="mb-4">
+                      <label class="form-label">From</label>
+                      <select class="form-select" name="fromAccount" required>
+                        <!-- <% 
+                        List<String> accountTypes = (List<String>) session.getAttribute("acountType");
+                        if (accountTypes != null) {
+                            for (String accountType : accountTypes) {
+                        %>
+                        <option value="<%= accountType %>"><%= accountType %></option>
+                        <%
+                            }
+                        }
+                        %> -->
+                        <option value="checking">Checking Account</option>
+                        <option value="savings">Savings Account</option>
+                        <option value="ts">Traditional Savings</option>
+                        <option value="cd">Certificate of Deposit (CD)</option>
+                      </select>
+                    </div>
+                    <div class="mb-4">
+                      <label class="form-label">To</label>
+                      <select class="form-select">
+                        <!-- <% if (accountTypes != null) { for (String accountType :
+                          accountTypes) { %>
+                          <option value="<%= accountType %>">
+                            <%= accountType %>
+                          </option>
+                          <% } } %> -->
+                        <option value="checking">Checking Account</option>
+                        <option value="savings">Savings Account</option>
+                        <option value="ts">Traditional Savings</option>
+                        <option value="cd">Certificate of Deposit (CD)</option>
+                      </select>
+                    </div>
+                    <div class="mb-4">
+                      <label name="Amount to transfer" type="number"
+                        >Amount to transfer</label
+                      >
+                      <input
+                        type="number"
+                        name="Transfer Amount"
+                        class="form-control"
+                      />
+                    </div>
+
+                    <div class="mb-4">
+                      <label class="form-label">Select Date</label>
+                      <input
+                        class="form-control"
+                        id="dateInput"
+                        type="date"
+                        value=""
+                      />
+                    </div>
+                    <button type="submit" value="Send" class="btn btn-primary">
+                      Send
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
           <button type="button" class="action_btn extra_space">
             <div class="button_content">
               <i class="fa-solid fa-plus"></i>
